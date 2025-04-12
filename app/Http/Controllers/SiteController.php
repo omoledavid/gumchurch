@@ -17,13 +17,31 @@ class SiteController extends Controller
     public function home(): View
     {
         $pageName = 'Home';
-        $events = Event::query()->latest()->get();
-        $sermons = Sermon::query()->where('status', 'published')->latest()->get();
-        $mainPost = Post::query()->where('status', PostStatus::PUBLISHED)->latest()->first();
-        $posts = Post::query()->where('status', PostStatus::PUBLISHED)->where('id','!=', $mainPost->id)->latest()->limit(4)->get();
-        $testimonies = Testimony::query()->latest()->get();
-        return view('home', compact('pageName','events','sermons','mainPost','posts','testimonies'));
+
+        // Fetching events
+        $events = Event::latest()->get();
+
+        // Fetching published sermons
+        $sermons = Sermon::where('status', 'published')->latest()->get();
+
+        // Fetching the latest main post, if available
+        $mainPost = Post::where('status', PostStatus::PUBLISHED)->latest()->first();
+
+        // If there's a main post, exclude it from the posts list, otherwise fetch all posts
+        $postsQuery = Post::where('status', PostStatus::PUBLISHED)->latest();
+
+        if ($mainPost) {
+            $postsQuery->where('id', '!=', $mainPost->id);
+        }
+
+        $posts = $postsQuery->limit(4)->get();
+
+        // Fetching latest testimonies
+        $testimonies = Testimony::latest()->get();
+
+        return view('home', compact('pageName', 'events', 'sermons', 'mainPost', 'posts', 'testimonies'));
     }
+
     public function about(): View
     {
         $pageName = 'About Us';
