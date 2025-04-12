@@ -1,4 +1,4 @@
-@if($sermons)
+@if($sermons && $sermons->count())
     <section class="home1-section3 position-relative" id="sermons-section">
         <div class="container">
             <div class="row mb-5 align-items-end d-flex align-items-center">

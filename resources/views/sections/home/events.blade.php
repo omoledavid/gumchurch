@@ -1,4 +1,4 @@
-@if($events)
+@if($events && $events->count())
     <section class="home2-section2 pt-80px pb-80px position-relative" id="about">
         <div class="container">
             <div class="row mb-5 align-items-end">

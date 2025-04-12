@@ -25,7 +25,7 @@
                         @endif
                         @if($sermon->audio)
                             <a href="javascript:void(0);"
-                               onclick="openAudioPlayer('{{ asset($sermon->audio) }}', '{{ $sermon->topic }}')"
+                               onclick="openAudioPlayer('{{ asset('storage/'.$sermon->audio) }}', '{{ $sermon->topic }}')"
                                title="Listen Audio">
                                 <i class="fas fa-headphones"></i>
                             </a>
