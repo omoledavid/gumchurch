@@ -34,7 +34,7 @@
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <img class="rounded-4 img-fluid w-100" height="37.375rem"
-                                                 src="{{asset($sermon->image ?? 'gum/images/sermon-image-placeholder.png')}}"
+                                                 src="{{asset('storage/'.$sermon->image ?? 'gum/images/sermon-image-placeholder.png')}}"
                                                  alt="Blessed" data-aos="fade-up">
                                         </div>
 
@@ -75,7 +75,7 @@
                                     @if($sermon->audio)
                                         <div class="items gap-2 d-flex align-items-center">
                                             <a href="javascript:void(0);"
-                                               onclick="openAudioPlayer('{{ asset($sermon->audio) }}', '{{ $sermon->topic }}')"
+                                               onclick="openAudioPlayer('{{ asset('storage/'.$sermon->audio) }}', '{{ $sermon->topic }}')"
                                                title="Listen Audio">
                                                 <i class="fas fa-headphones"></i>
                                                 Listen Audio

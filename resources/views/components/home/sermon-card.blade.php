@@ -4,7 +4,7 @@
         <div class="project__item-four">
             <div class="project__thumb-four">
                 <a href="{{route('sermons.show', $sermon->slug)}}"><img
-                        src="{{asset($sermon->thumbnail ?? 'gum/images/sermon-placeholder.png')}}"
+                        src="{{asset('storage/'.$sermon->thumbnail ?? 'gum/images/sermon-placeholder.png')}}"
                         alt="Blessed"></a>
             </div>
             <div class="project__content-four">
