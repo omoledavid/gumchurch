@@ -1,4 +1,4 @@
-@if($testimonies->count())
+@if($testimonies)
     <section class="position-relative section-padding home2-section9">
         <div class="container">
 

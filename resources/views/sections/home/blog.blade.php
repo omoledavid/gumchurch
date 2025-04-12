@@ -1,4 +1,4 @@
-@if($mainPost->count())
+@if($mainPost)
     <section class="home-2-section-10 pt-80px pb-80px">
         <div class="container">
             <div class="row">
