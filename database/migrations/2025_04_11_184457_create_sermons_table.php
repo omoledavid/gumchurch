@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('thumbnail')->nullable();
             $table->text('body')->nullable();
-            $table->foreignId('series_id')->constrained('series')->onDelete('cascade');  // Assuming a sermon belongs to a series
+            $table->foreignId('series_id');  // Assuming a sermon belongs to a series
             $table->string('preacher');
             $table->text('description');
             $table->string('slug')->unique();
