@@ -67,7 +67,8 @@ class SiteController extends Controller
     public function sermons(): View
     {
         $pageName = 'Sermons';
-        return view('pages.sermons.index', compact('pageName'));
+        $sermons = Sermon::query()->latest()->paginate(10);
+        return view('pages.sermons.index', compact('pageName','sermons'));
     }
     public function showSermon($slug): View
     {
@@ -79,7 +80,19 @@ class SiteController extends Controller
     public function blogs(): View
     {
         $pageName = 'Insights ';
-        return view('pages.blogs.index', compact('pageName'));
+        // Fetching the latest main post, if available
+        $mainPost = Post::where('status', PostStatus::PUBLISHED)->latest()->first();
+
+        // If there's a main post, exclude it from the posts list, otherwise fetch all posts
+        $postsQuery = Post::where('status', PostStatus::PUBLISHED)->latest();
+
+        if ($mainPost) {
+            $postsQuery->where('id', '!=', $mainPost->id);
+        }
+        $categories = Category::query()->latest()->get();
+
+        $posts = $postsQuery->paginate(6);
+        return view('pages.blogs.index', compact('pageName','posts','mainPost','categories'));
     }
     public function viewPost($slug): View
     {
@@ -111,5 +124,10 @@ class SiteController extends Controller
 
 
         return view('pages.blogs.show', compact('pageName', 'post', 'categories', 'relatedPosts'));
+    }
+    public function ourPastor(): View
+    {
+        $pageName = 'Our Pastor';
+        return view('pages.pastor', compact('pageName'));
     }
 }

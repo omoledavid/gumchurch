@@ -17,7 +17,7 @@ class TestimonyResource extends Resource
 {
     protected static ?string $model = Testimony::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-face-smile';
 
     public static function form(Form $form): Form
     {

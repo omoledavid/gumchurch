@@ -15,6 +15,7 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('sermons/{slug}', 'showSermon')->name('sermons.show');
     Route::get('blogs', 'blogs')->name('blogs');
     Route::get('post/{slug}', 'viewPost')->name('post.show');
+    Route::get('our-pastor', 'ourPastor')->name('our-pastor');
 });
 
 require __DIR__.'/auth.php';

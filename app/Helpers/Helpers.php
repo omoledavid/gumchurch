@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 function gs($key = null)
 {
-    if(Schema::hasTable('general_settings')) {
+    if (Schema::hasTable('general_settings')) {
         $general = Cache::get('GeneralSetting');
         if (!$general) {
             $general = GeneralSetting::first();
@@ -19,7 +19,6 @@ function gs($key = null)
         return $general;
     }
     return null;
-
 }
 
 function logo()
@@ -87,5 +86,7 @@ function formatPhoneNumber($phoneNumber)
 
     return '+' . $countryCode . ' (' . $firstThree . ') ' . $nextThree . '-' . $lastFour;
 }
-
-
+function getFile($file, $fallback = null)
+{
+    return $file ? asset('storage/' . $file) : asset("gum/images/$fallback");
+}

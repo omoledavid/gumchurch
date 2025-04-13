@@ -13,14 +13,14 @@
                 <div class="col-12 mb-4 d-flex justify-content-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('sermons')}}">Sermon</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('sermons') }}">Sermon</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Sermons Details</li>
                         </ol>
                     </nav>
                 </div>
                 <div class="col-12 d-flex align-items-center flex-column justify-content-center ">
-                    <h1 class="text-center page-title fw-medium">{{$sermon->topic}}</h1>
+                    <h1 class="text-center page-title fw-medium">{{ $sermon->topic }}</h1>
                 </div>
             </div>
         </div>
@@ -34,8 +34,8 @@
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <img class="rounded-4 img-fluid w-100" height="37.375rem"
-                                                 src="{{asset('storage/'.$sermon->image ?? 'gum/images/sermon-image-placeholder.png')}}"
-                                                 alt="Blessed" data-aos="fade-up">
+                                                src="{{ getFile($sermon->image, 'sermon-image-placeholder.png') }}"
+                                                alt="Blessed" data-aos="fade-up">
                                         </div>
 
                                     </div>
@@ -49,22 +49,22 @@
                                     <p class="time fs-8 mb-3">
                                         <i class="size-16 me-2" data-feather="user"></i>
                                         <span class="text-300">Sermon By:</span>
-                                        <span class="text-dark"> {{$sermon->preacher}}</span>
+                                        <span class="text-dark"> {{ $sermon->preacher }}</span>
                                     </p>
                                     <p class="time fs-8 mb-3">
                                         <i class="size-16 me-2" data-feather="clock"></i>
                                         <span class="text-300">Date:</span>
-                                        <span class="text-dark">{{$sermon?->date_preached?->format('d F Y')}}</span>
+                                        <span class="text-dark">{{ $sermon?->date_preached?->format('d F Y') }}</span>
                                     </p>
                                     <p class="location  mb-0 fs-8">
                                         <i class="size-16 me-2" data-feather="map-pin"></i>
                                         <span class="text-300">Series:</span>
-                                        <span class="text-dark">{{$sermon->series->name}}</span>
+                                        <span class="text-dark">{{ $sermon->series->name }}</span>
                                     </p>
                                 </div>
                                 <div class="hr-vertical"></div>
                                 <div class="icons d-flex gap-2 flex-column mb-4 mb-lg-0">
-                                    @if($sermon->video)
+                                    @if ($sermon->video)
                                         <div class="items gap-2 d-flex align-items-center">
                                             <a href="javascript:void(0);">
                                                 <i class="me-2 fab fa-youtube"></i>
@@ -72,17 +72,17 @@
                                             </a>
                                         </div>
                                     @endif
-                                    @if($sermon->audio)
+                                    @if ($sermon->audio)
                                         <div class="items gap-2 d-flex align-items-center">
                                             <a href="javascript:void(0);"
-                                               onclick="openAudioPlayer('{{ asset('storage/'.$sermon->audio) }}', '{{ $sermon->topic }}')"
-                                               title="Listen Audio">
+                                                onclick="openAudioPlayer('{{getFile($sermon->audio) }}', '{{ $sermon->topic }}')"
+                                                title="Listen Audio">
                                                 <i class="fas fa-headphones"></i>
                                                 Listen Audio
                                             </a>
                                         </div>
                                     @endif
-                                    @if($sermon->pdf_file)
+                                    @if ($sermon->pdf_file)
                                         <div class="items gap-2 d-flex align-items-center">
                                             <a href="javascript:">
                                                 <i class="me-2 far fa-file-pdf"></i>
@@ -93,20 +93,20 @@
                                 </div>
                                 <div class="hr-vertical"></div>
                                 <a href="javascript:" class="btn text-white rounded-5 btn-circle-arrow my-auto"
-                                   data-aos="flip-up">
-                                    @if(!$sermon->video)
+                                    data-aos="flip-up">
+                                    @if (!$sermon->video)
                                         <span>Watch Online</span>
                                     @else
                                         <span>
                                             <a href="javascript:void(0);"
-                                               onclick="openAudioPlayer('{{ asset($sermon->audio) }}', '{{ $sermon->topic }}')"
-                                               title="Listen Audio"> Play Online
+                                                onclick="openAudioPlayer('{{getFile($sermon->audio) }}', '{{ $sermon->topic }}')"
+                                                title="Listen Audio"> Play Online
                                             </a>
                                         </span>
                                     @endif
                                     <span class="bg-transparent ms-2">
-                                                <i class="size-14" data-feather="arrow-right"></i>
-                                            </span>
+                                        <i class="size-14" data-feather="arrow-right"></i>
+                                    </span>
                                 </a>
                             </div>
                             <div class="row">
@@ -114,7 +114,7 @@
                             </div>
                             <div class="cycles d-flex justify-content-end">
                                 <div class="p-5 py-2 cycle d-flex align-items-center flex-column">
-                                    <p class="fs-5 text-dark">- {{$sermon->preacher}} -</p>
+                                    <p class="fs-5 text-dark">- {{ $sermon->preacher }} -</p>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +125,7 @@
     </section>
     <!-- Sermon Carousel
             ==================== -->
-    @if($otherSermons->count())
+    @if ($otherSermons->count())
         <section class="home1-section3 position-relative" id="about">
             <div class="container">
                 <div class="row mb-5 align-items-end">
@@ -155,8 +155,8 @@
                         <div class="box-swiper-padding">
                             <div class="swiper-container blessed-sermon-slider-two">
                                 <div class="swiper-wrapper">
-                                    @foreach($otherSermons as $sermon)
-                                        <x-home.sermon-card :$sermon/>
+                                    @foreach ($otherSermons as $sermon)
+                                        <x-home.sermon-card :$sermon />
                                     @endforeach
                                 </div>
                             </div>
