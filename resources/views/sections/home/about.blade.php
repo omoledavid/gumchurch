@@ -1,4 +1,4 @@
-<section class="section-6 position-relative">
+<section class="section-6 position-relative mt-4">
     <div class="container">
         <div class="row d-flex align-items-center">
             <div class="col-lg-6 pe-lg-4">
