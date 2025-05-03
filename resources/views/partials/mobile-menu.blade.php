@@ -2,7 +2,7 @@
     <nav class="tgmobile__menu-box">
         <div class="close-btn"><i class="fas fa-times"></i></div>
         <div class="nav-logo">
-            <a href="{{route('home')}}"><img src="{{logo()}}" alt="Blessed"></a>
+            <a href="{{ route('home') }}"><img src="{{ logo() }}" alt="gum"></a>
         </div>
         <div class="tgmobile__search">
             <form action="javascript:">
@@ -15,8 +15,10 @@
         <div class="tgmobile__menu-bottom">
             <div class="contact-info">
                 <ul class="list-wrap">
-                    <li><a href="mailto:{{$general->site_email ?? ''}}">{{$general->site_email ?? ''}}</a></li>
-                    <li><a href="tel:{{$general->site_phone ?? ''}}">{{formatPhoneNumber($general->site_phone) ?? ''}}</a></li>
+                    <li><a href="mailto:{{ $general->site_email ?? '' }}">{{ $general->site_email ?? '' }}</a></li>
+                    <li><a
+                            href="tel:{{ $general->site_phone ?? '' }}">{{ formatPhoneNumber($general->site_phone) ?? '' }}</a>
+                    </li>
                 </ul>
             </div>
             <div class="social-links">

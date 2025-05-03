@@ -1,4 +1,4 @@
-@if($events && $events->count())
+@if ($events && $events->count())
     <section class="home2-section2 pt-80px pb-80px position-relative" id="about">
         <div class="container">
             <div class="row mb-5 align-items-end">
@@ -29,8 +29,8 @@
                     <div class="box-swiper-padding">
                         <div class="swiper-container blessed-event-slider">
                             <div class="swiper-wrapper py-2">
-                                @foreach($events as $event)
-                                    <x-home.event-card :$event/>
+                                @foreach ($events as $event)
+                                    <x-home.event-card :$event />
                                 @endforeach
                             </div>
                         </div>
@@ -43,12 +43,12 @@
         </div>
         <!-- end swipper js -->
         <div class="bg-bottom">
-            <img src="{{asset('assets/images/home2/img-bg-sec-2.png')}}" alt="Blessed" data-aos="fade-right" data-aos-delay="400"
-                 class="aos-init aos-animate img-bg">
+            <img src="{{ asset('assets/images/home2/img-bg-sec-2.png') }}" alt="gum" data-aos="fade-right"
+                data-aos-delay="400" class="aos-init aos-animate img-bg">
         </div>
         <div class="bg-top d-none d-lg-block alltuchtopdown">
-            <img src="{{asset('assets/images/home2/img-bg-sec-2-1.png')}}" alt="Blessed" data-aos="fade-right" data-aos-delay="400"
-                 class="aos-init aos-animate img-bg">
+            <img src="{{ asset('assets/images/home2/img-bg-sec-2-1.png') }}" alt="gum" data-aos="fade-right"
+                data-aos-delay="400" class="aos-init aos-animate img-bg">
         </div>
     </section>
 

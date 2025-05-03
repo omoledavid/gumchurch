@@ -35,7 +35,7 @@
                                         <div class="swiper-slide">
                                             <img class="rounded-4 img-fluid w-100" height="37.375rem"
                                                 src="{{ getFile($sermon->image, 'sermon-image-placeholder.png') }}"
-                                                alt="Blessed" data-aos="fade-up">
+                                                alt="gum" data-aos="fade-up">
                                         </div>
 
                                     </div>
@@ -75,7 +75,7 @@
                                     @if ($sermon->audio)
                                         <div class="items gap-2 d-flex align-items-center">
                                             <a href="javascript:void(0);"
-                                                onclick="openAudioPlayer('{{getFile($sermon->audio) }}', '{{ $sermon->topic }}')"
+                                                onclick="openAudioPlayer('{{ getFile($sermon->audio) }}', '{{ $sermon->topic }}')"
                                                 title="Listen Audio">
                                                 <i class="fas fa-headphones"></i>
                                                 Listen Audio
@@ -99,7 +99,7 @@
                                     @else
                                         <span>
                                             <a href="javascript:void(0);"
-                                                onclick="openAudioPlayer('{{getFile($sermon->audio) }}', '{{ $sermon->topic }}')"
+                                                onclick="openAudioPlayer('{{ getFile($sermon->audio) }}', '{{ $sermon->topic }}')"
                                                 title="Listen Audio"> Play Online
                                             </a>
                                         </span>
@@ -168,7 +168,7 @@
                 </div>
             </div>
             <div class="wrap-asset position-absolute top-50 left-5 ms-5">
-                <img class="alltuchtopdown" src="assets/images/sermon-details/cornflower-bgr.png" alt="Blessed">
+                <img class="alltuchtopdown" src="assets/images/sermon-details/cornflower-bgr.png" alt="gum">
             </div>
         </section>
     @endif

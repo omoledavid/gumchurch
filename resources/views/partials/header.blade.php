@@ -7,9 +7,9 @@
                         <div class="swiper-1-vertical">
                             <div class="swiper-wrapper">
                                 {{-- upcoming slider --}}
-                                @if($events->count())
-                                    @foreach($events as $event)
-                                        <x-upcoming :$event/>
+                                @if ($events->count())
+                                    @foreach ($events as $event)
+                                        <x-upcoming :$event />
                                     @endforeach
                                 @endif
                             </div>
@@ -20,12 +20,12 @@
                     <ul class="tc-header__top-right list-wrap fs-7 fw-normal">
                         <li>
                             <i class="size-16" data-feather="phone"></i>
-                            <a href="tel:{{formatPhoneNumber($general->site_phone) ?? ''}}"><span
-                                    class="text-dark">{{formatPhoneNumber($general->site_phone) ?? ''}}</span></a>
+                            <a href="tel:{{ formatPhoneNumber($general->site_phone) ?? '' }}"><span
+                                    class="text-dark">{{ formatPhoneNumber($general->site_phone) ?? '' }}</span></a>
                         </li>
                         <li>
                             <i class="size-16" data-feather="map-pin"></i>
-                            <span class="text-dark">{{$general->site_address ?? ''}}</span>
+                            <span class="text-dark">{{ $general->site_address ?? '' }}</span>
                         </li>
                     </ul>
                 </div>
@@ -43,8 +43,8 @@
                         <nav
                             class="tgmenu__nav d-flex align-items-center justify-content-between justify-content-xxl-between justify-content-xl-evenly">
                             <div class="logo">
-                                <a class="d-flex align-items-center" href="{{route('home')}}">
-                                    <img src="{{logo()}}" alt="Blessed">
+                                <a class="d-flex align-items-center" href="{{ route('home') }}">
+                                    <img src="{{ logo() }}" alt="gum">
                                 </a>
                             </div>
                             <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xxl-flex d-xl-flex">
@@ -73,11 +73,11 @@
                                     </li>
                                     <li class="header-btn">
                                         <a href="javascript:"
-                                           class="btn text-white rounded-5 btn-circle-arrow menu-tigger">
+                                            class="btn text-white rounded-5 btn-circle-arrow menu-tigger">
                                             <span>Reachout</span>
                                             <span class="bg-transparent ms-2">
-                                                        <i class="size-16" data-feather="arrow-right"></i>
-                                                    </span>
+                                                <i class="size-16" data-feather="arrow-right"></i>
+                                            </span>
                                         </a>
                                     </li>
                                 </ul>
@@ -107,11 +107,11 @@
                         <div class="search__close">
                             <button type="button" class="search-close-btn">
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path d="M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round"></path>
+                                        stroke-linejoin="round"></path>
                                     <path d="M1 1L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round"></path>
+                                        stroke-linejoin="round"></path>
                                 </svg>
                             </button>
                         </div>
@@ -119,17 +119,17 @@
                             <form action="javascript:">
                                 <div class="search__input">
                                     <input class="search-input-field" id="search-input-field" type="text"
-                                           placeholder="Type keywords here">
+                                        placeholder="Type keywords here">
                                     <span class="search-focus-border"></span>
                                     <button>
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
+                                            xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M9.55 18.1C14.272 18.1 18.1 14.272 18.1 9.55C18.1 4.82797 14.272 1 9.55 1C4.82797 1 1 4.82797 1 9.55C1 14.272 4.82797 18.1 9.55 18.1Z"
                                                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                                 stroke-linejoin="round"></path>
                                             <path d="M19.0002 19.0002L17.2002 17.2002" stroke="currentColor"
-                                                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                             </path>
                                         </svg>
                                     </button>
@@ -150,7 +150,7 @@
             <button><i class="far fa-window-close"></i></button>
         </div>
         <div class="offCanvas__logo mb-30">
-            <a href="{{route('home')}}"><img src="{{logo()}}" alt="gum"></a>
+            <a href="{{ route('home') }}"><img src="{{ logo() }}" alt="gum"></a>
         </div>
         <div class="offCanvas__side-info mb-30">
             <div class="contact-list mb-30">
@@ -159,11 +159,11 @@
             </div>
             <div class="contact-list mb-30">
                 <h4>Phone Number</h4>
-                <p>{{formatPhoneNumber($general->site_phone) ?? ''}}</p>
+                <p>{{ formatPhoneNumber($general->site_phone) ?? '' }}</p>
             </div>
             <div class="contact-list mb-30">
                 <h4>Email Address</h4>
-                <p>{{$general->site_email}}</p>
+                <p>{{ $general->site_email }}</p>
             </div>
         </div>
         <div class="offCanvas__social-icon mt-30">

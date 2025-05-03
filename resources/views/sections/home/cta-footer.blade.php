@@ -21,14 +21,14 @@
                         <span>{{ formatPhoneNumber($general->site_phone) ?? '' }}</span>
                     </a>
                 </div>
-                
+
             </div>
         </div>
     </div>
     <div class="wrap-asset-13 position-absolute">
-        <img class="asset-top-down" src="assets/images/home1/img-sec-13.png" alt="Blessed">
+        <img class="asset-top-down" src="assets/images/home1/img-sec-13.png" alt="gum">
     </div>
     <div class="wrap-asset-13-1 position-absolute">
-        <img class="asset-top-down" src="assets/images/home1/img-sec-13.1.png" alt="Blessed">
+        <img class="asset-top-down" src="assets/images/home1/img-sec-13.1.png" alt="gum">
     </div>
 </div>
