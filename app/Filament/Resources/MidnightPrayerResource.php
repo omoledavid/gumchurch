@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Log;
 
 class MidnightPrayerResource extends Resource
 {
@@ -72,11 +73,31 @@ class MidnightPrayerResource extends Resource
                     ->dateTime()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('duration')
-                    ->numeric()
+                    ->label('Duration')
+                    ->formatStateUsing(function ($state) {
+                        $minutes = (int) $state;
+                        $hours = intdiv($minutes, 60);
+                        $remainingMinutes = $minutes % 60;
+
+                        if ($hours > 0) {
+                            return "{$hours}h {$remainingMinutes}m";
+                        }
+
+                        return "{$remainingMinutes}m";
+                    })
                     ->sortable(),
-                Tables\Columns\TextColumn::make('status')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('local_file_path')
+                Tables\Columns\TextColumn::make('file_size')
+                    ->label('File Size')
+                    ->formatStateUsing(function ($state) {
+                        $size = (int) $state;
+                        Log::info('File size: ' . $size);
+
+                        if ($size == 0) return 'Unknown';
+
+                        return $size >= 1048576
+                            ? number_format($size / 1048576, 2) . ' MB'
+                            : number_format($size / 1024, 2) . ' KB';
+                    })
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
