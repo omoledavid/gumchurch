@@ -8,19 +8,20 @@
             </div>
             <div class="col-xl-6 col-12 text-end text-xxl-end text-xl-end text-lg-center text-center">
                 <div class="mt-4 mt-lg-0">
-                    <a href="{{route('contact-us')}}" class="btn text-white rounded-5 me-2">
-                                    <span class="bg-transparent me-2">
-                                        <i class="size-16" data-feather="mail"></i>
-                                    </span>
+                    <a href="{{ route('contact-us') }}" class="btn text-white rounded-5 me-2">
+                        <span class="bg-transparent me-2">
+                            <i class="size-16" data-feather="mail"></i>
+                        </span>
                         <span>Send Us Email</span>
                     </a>
-                    <a href="tel:2295550109" class="btn btn-dark btn-white rounded-5">
-                                    <span class="bg-transparent-sec-13 me-2">
-                                        <i class="size-16" data-feather="phone"></i>
-                                    </span>
-                        <span>{{formatPhoneNumber($general->site_phone) ?? ''}}</span>
+                    <a href="tel:2295550109" class="btn btn-dark btn-white rounded-5 mt-2 mt-lg-0">
+                        <span class="bg-transparent-sec-13 me-2">
+                            <i class="size-16" data-feather="phone"></i>
+                        </span>
+                        <span>{{ formatPhoneNumber($general->site_phone) ?? '' }}</span>
                     </a>
                 </div>
+                
             </div>
         </div>
     </div>

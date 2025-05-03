@@ -61,11 +61,13 @@
                         <i class="bi bi-clock me-1"></i>
                         Duration: {{ gmdate('H:i:s', $sermon->duration * 60) }}
                     </div>
-                    <a href="{{ route('midnight-prayer.download', $sermon->id) }}" class="btn btn-primary">
-                        <i class="bi bi-download me-1"></i>
-                        Download
-                        ({{ $sermon->file_size ? number_format($sermon->file_size / (1024 * 1024), 2) . ' MB' : 'Unknown size' }})
-                    </a>
+                    <a href="{{ route('midnight-prayer.download', $sermon->id) }}"
+                        class="btn btn-primary fs-6 w-100">
+                         <i class="bi bi-download me-1"></i>
+                         Download
+                         ({{ $sermon->file_size ? number_format($sermon->file_size / (1024 * 1024), 2) . ' MB' : 'Unknown size' }})
+                     </a>
+                     
                 </div>
             </div>
         </div>
