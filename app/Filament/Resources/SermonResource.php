@@ -70,7 +70,7 @@ class SermonResource extends Resource
                             ->storeFileNamesIn('original_name')
                             ->visibility('public')
                             ->disk('public')
-                            ->dehydrated(true)
+                            // ->dehydrated(true)
                             ->acceptedFileTypes(['audio/mpeg']),
 
                     ])->columns(4),

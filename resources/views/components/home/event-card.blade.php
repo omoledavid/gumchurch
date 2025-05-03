@@ -5,7 +5,13 @@
             <div class="card-items hover-up">
                 <div class="d-flex flex-column flex-lg-row align-items-lg-center">
                     <div class="thumb-img position-relative mb-3 mb-lg-0">
-                        <img class="rounded-2" src="{{asset($event->thumbnail)}}" alt="Blessed">
+                        <div class="position-relative" style="aspect-ratio: 53 / 59;">
+                            <img src="{{ asset($event->thumbnail) }}"
+                                 alt="gum"
+                                 class="position-absolute top-0 start-0 w-100 h-100 rounded-2"
+                                 style="object-fit: cover; object-position: center;">
+                        </div>
+                        
                         <div class="date fs-8 text-white d-flex flex-column justify-content-center position-absolute">
                             <h4 class="text-white mb-0 lh-0">{{ $event->start_date->format('d') }}</h4>
                             <span class="fs-8">{{ $event->start_date->format('F') }}</span>

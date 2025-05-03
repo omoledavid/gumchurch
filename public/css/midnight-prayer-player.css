@@ -1,0 +1,67 @@
+/* Custom video player styles */
+.video-container {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    background-color: #000;
+    border-radius: 0.5rem;
+  }
+  
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .sermon-card {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  /* Accessibility improvements */
+  video:focus {
+    outline: 3px solid #4299e1;
+  }
+  
+  .chapter-marker:focus {
+    outline: 3px solid #4299e1;
+    outline-offset: 2px;
+  }
+  
+  a:focus,
+  button:focus {
+    outline: 3px solid #4299e1;
+    outline-offset: 2px;
+  }
+  
+  /* High contrast mode support */
+  @media (forced-colors: active) {
+    .sermon-card {
+      border: 1px solid CanvasText;
+    }
+  
+    .video-container {
+      border: 1px solid CanvasText;
+    }
+  
+    a,
+    button {
+      border: 1px solid CanvasText;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  

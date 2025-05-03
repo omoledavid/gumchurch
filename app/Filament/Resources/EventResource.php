@@ -41,7 +41,8 @@ class EventResource extends Resource
                     ->extraInputAttributes(['style' => 'max-height: 30rem; min-height: 24rem'])
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('thumbnail')
-                    ->directory('events/thumbnail'),
+                    ->directory('events/thumbnail')
+                    ->hint('Image size must be 212x236'),
                 Forms\Components\FileUpload::make('image')
                     ->directory('events/image')
                     ->image(),

@@ -59,7 +59,7 @@
                                 <h4 class="font-body mb-4 text-white fs-18px">Links</h4>
                                 <ul class="list-wrap">
                                     <li><a href="javascript:void()">Donate</a></li>
-                                    <li><a href="javascript:void()">Leadership</a></li>
+                                    <li><a href="{{route('midnight-prayers')}}">Midnight Prayers</a></li>
                                     <li><a href="javascript:void()">Youth Programs</a></li>
                                     <li><a href="javascript:void()">Testimonials</a></li>
                                 </ul>

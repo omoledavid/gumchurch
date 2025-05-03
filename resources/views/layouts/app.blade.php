@@ -40,7 +40,11 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/library/odometer/odometer.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/library/swiper/swiper-bundle.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/library/aos/aos.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
+    
+    {{-- midnight player --}}
+    <link rel="stylesheet" type="text/css" href="{{asset('css/midnight-prayer-player.css')}}">
     <!-- Custom - CSS here -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/style.css')}}">
 
@@ -96,6 +100,9 @@
 <script src="{{asset('assets/library/gsap-3.10.4/gsap.js')}}"></script>
 <script src="{{asset('assets/library/gsap-3.10.4/ScrollTrigger.js')}}"></script>
 <script src="{{asset('assets/library/gsap-3.10.4/SplitText.js')}}"></script>
+
+{{-- midnight player --}}
+<script src="{{asset('js/midnight-prayer-video-player.js')}}"></script>
 
 <!-- Blessed - Template Custom Script
 ===================================== -->
