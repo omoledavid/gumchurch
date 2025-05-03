@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class MidnightPrayer extends Model
 {
     use HasFactory;
+    protected $audioStoragePath = 'public/audio/midnight-prayers';
     
     protected $fillable = [
         'title',
@@ -27,6 +29,14 @@ class MidnightPrayer extends Model
     protected $casts = [
         'recording_date' => 'datetime',
     ];
+    protected static function booted()
+{
+    static::deleting(function ($sermon) {
+        if ($sermon->local_file_path && Storage::exists('public/audio/midnight-prayers' . '/' . $sermon->local_file_path)) {
+            Storage::delete('public/audio/midnight-prayers' . '/' . $sermon->local_file_path);
+        }
+    });
+}
     
     public function getDurationForHumans()
     {
