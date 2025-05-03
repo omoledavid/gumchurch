@@ -12,8 +12,8 @@
     <!-- Specific Meta
     ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Blessed - HTML Template Build For Church">
-    <meta name="keywords" content="HTML5, charity HTML, church, churches, donation, ministry, mosque, ngo, non-profit, prayer, religion, religious">
+    <meta name="description" content="GUM - God's Unification Mission">
+    <meta name="keywords" content="GUM, God's Unification Mission, Church, Religion, Faith">
     <meta name="author" content="wp-organic">
     <meta name="MobileOptimized" content="320">
 
@@ -83,7 +83,7 @@
 ============================================================== -->
 <button class="scroll__top scroll-to-target" data-target="html"><i class="fas fa-angle-up"></i></button>
 
-<!-- Blessed Template - Jquery Library Script Files
+<!-- GUM Template - Jquery Library Script Files
 =================================================== -->
 <script src="{{asset('assets/library/jquery-3.7.1.min.js')}}"></script>
 <script src="{{asset('assets/library/bootstrap-5.3.2/bootstrap.bundle.min.js')}}"></script>
@@ -104,7 +104,7 @@
 {{-- midnight player --}}
 <script src="{{asset('js/midnight-prayer-video-player.js')}}"></script>
 
-<!-- Blessed - Template Custom Script
+<!-- GUM - Template Custom Script
 ===================================== -->
 <script src="{{asset('assets/script.js')}}"></script>
 {{--audio player--}}
