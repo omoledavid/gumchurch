@@ -89,7 +89,7 @@ class SiteController extends Controller
         if ($mainPost) {
             $postsQuery->where('id', '!=', $mainPost->id);
         }
-        $categories = Category::query()->latest()->get();
+        $categories = Category::query()->whereHas('posts')->latest()->get();
 
         $posts = $postsQuery->paginate(6);
         return view('pages.blogs.index', compact('pageName','posts','mainPost','categories'));
@@ -129,5 +129,35 @@ class SiteController extends Controller
     {
         $pageName = 'Our Pastor';
         return view('pages.pastor', compact('pageName'));
+    }
+    public function formSubmit(Request $request)
+    {
+        // $request->validate([
+        //     'name' => 'required|string|max:255',
+        //     'email' => 'required|email|max:255',
+        //     'message' => 'required|string|max:5000',
+        // ]);
+
+        // Handle the form submission logic here
+        // For example, you can save the data to the database or send an email
+
+        return redirect()->back()->with('success', 'Your message has been sent successfully!');
+    }
+    public function categoryPost($slug): View
+    {
+        $category = Category::query()->where('slug', $slug)->firstOrFail();
+        $pageName = 'Category - ' . $category->name;
+        $categories = Category::query()->whereHas('posts')->latest()->get();
+
+        // Fetch posts related to the category
+        $posts = Post::query()
+            ->whereHas('categories', function ($query) use ($category) {
+                $query->where('fblog_categories.id', $category->id);
+            })
+            ->where('status', PostStatus::PUBLISHED)
+            ->latest()
+            ->paginate(6);
+
+        return view('pages.blogs.category-posts', compact('pageName', 'posts', 'category', 'categories'));
     }
 }

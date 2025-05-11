@@ -17,6 +17,8 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('blogs', 'blogs')->name('blogs');
     Route::get('post/{slug}', 'viewPost')->name('post.show');
     Route::get('our-pastor', 'ourPastor')->name('our-pastor');
+    Route::post('form-submit', 'formSubmit')->name('form.submit');
+    Route::get('category-post/{slug}', 'categoryPost')->name('category.posts');
 });
 Route::controller(MidnightPrayerController::class)->group(function () {
     Route::get('midnight-prayers', 'index')->name('midnight-prayers');

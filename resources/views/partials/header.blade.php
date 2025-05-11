@@ -25,7 +25,9 @@
                         </li>
                         <li>
                             <i class="size-16" data-feather="map-pin"></i>
-                            <span class="text-dark">{{ $general->site_address ?? '' }}</span>
+                            <a href="{{route('contact-us')}}">
+                                <span class="text-dark">Warri, Delta State Nigeria</span>
+                            </a>
                         </li>
                     </ul>
                 </div>

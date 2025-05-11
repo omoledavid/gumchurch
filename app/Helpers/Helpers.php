@@ -47,7 +47,7 @@ function favicon()
 }
 function formatPhoneNumber($phoneNumber)
 {
-    // Trim and clean input
+    // Clean and normalize
     $phoneNumber = trim($phoneNumber);
     $phoneNumber = preg_replace('/[^\d+]/', '', $phoneNumber);
 
@@ -56,33 +56,46 @@ function formatPhoneNumber($phoneNumber)
         $phoneNumber = '+' . substr($phoneNumber, 2);
     }
 
-    // If already starts with +, assume international
+    // Normalize to digits only
     if (strpos($phoneNumber, '+') === 0) {
         $digits = substr($phoneNumber, 1);
     } elseif (strlen($phoneNumber) === 11 && $phoneNumber[0] === '0') {
-        // Nigerian local with leading 0
+        // Nigerian local number with leading 0
         $digits = '234' . substr($phoneNumber, 1);
     } elseif (strlen($phoneNumber) === 10) {
-        // Nigerian local without leading 0
+        // Nigerian local number without leading 0
         $digits = '234' . $phoneNumber;
     } else {
-        // Fallback for other international numbers (assume valid)
+        // Assume it's already international without '+'
         $digits = $phoneNumber;
     }
 
-    // Break into pieces: assume 3-digit prefix, then next 3, then 4
+    // Detect country code
     $countryCode = '';
-    $rest = $digits;
+    $nationalNumber = '';
 
-    // Extract country code (e.g. 234, 44, 1, etc.)
-    if (strlen($digits) > 10) {
+    if (preg_match('/^1(\d{10})$/', $digits, $matches)) {
+        // US/Canada
+        $countryCode = '1';
+        $nationalNumber = $matches[1];
+    } elseif (preg_match('/^44(\d{10})$/', $digits, $matches)) {
+        // UK
+        $countryCode = '44';
+        $nationalNumber = $matches[1];
+    } elseif (preg_match('/^234(\d{10})$/', $digits, $matches)) {
+        // Nigeria
+        $countryCode = '234';
+        $nationalNumber = $matches[1];
+    } else {
+        // Fallback
         $countryCode = substr($digits, 0, strlen($digits) - 10);
-        $rest = substr($digits, -10);
+        $nationalNumber = substr($digits, -10);
     }
 
-    $firstThree = substr($rest, 0, 3);
-    $nextThree = substr($rest, 3, 3);
-    $lastFour = substr($rest, 6, 4);
+    // Format number as +CC (XXX) XXX-XXXX
+    $firstThree = substr($nationalNumber, 0, 3);
+    $nextThree = substr($nationalNumber, 3, 3);
+    $lastFour = substr($nationalNumber, 6, 4);
 
     return '+' . $countryCode . ' (' . $firstThree . ') ' . $nextThree . '-' . $lastFour;
 }

@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="section-title pb-5 tg-heading-subheading animation-style3">
                     <p class="sub-title fs-5">Our news and blog</p>
-                    <h5 class="title tg-element-title ds-5 fw-normal">Updated Latest News</h5>
+                    <h5 class="title tg-element-title ds-5 fw-normal">Updated Insights</h5>
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="card blog-style-1 shine-animate-item hover-up">

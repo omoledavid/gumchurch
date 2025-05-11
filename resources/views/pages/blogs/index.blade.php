@@ -12,27 +12,12 @@
                         </h2>
                     </div>
                     <div class="d-flex flex-wrap gap-2 mb-4">
-                        <a href="javascript:" class="btn rounded-5 btn-tag-outline active">
-                            <span>Inspiration</span>
-                        </a>
-                        <a href="javascript:" class="btn rounded-5 btn-tag-outline">
-                            <span>Community</span>
-                        </a>
-                        <a href="javascript:" class="btn rounded-5 btn-tag-outline">
-                            <span>Fellowship</span>
-                        </a>
-                        <a href="javascript:" class="btn rounded-5 btn-tag-outline">
-                            <span>Prayer</span>
-                        </a>
-                        <a href="javascript:" class="btn rounded-5 btn-tag-outline">
-                            <span>Meditation</span>
-                        </a>
-                        <a href="javascript:" class="btn rounded-5 btn-tag-outline">
-                            <span>Biblical Insights</span>
-                        </a>
-                        <a href="javascript:" class="btn rounded-5 btn-tag-outline">
-                            <span>Personal Growth</span>
-                        </a>
+                        @foreach ($categories as $category)
+                            <a href="{{ route('category.posts', $category->slug) }}" 
+                               class="btn rounded-5 btn-tag-outline {{ collect($mainPost->categories)->contains('slug', $category->slug) ? 'active' : '' }}">
+                                <span>{{ $category->name }}</span>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 <x-app-layout :$pageName>
     <div class="envent-details-header">
-        <div class="page-header" data-background="assets/images/home2/hero-2-bg.png">
+        <div class="page-header" >
         </div>
     </div>
     <section class="event-details-section-1 pt-80px">
@@ -83,5 +83,5 @@
         </div>
     </section>
     @include('sections.home.cta-footer')
-    <x-contact-form />
+    {{-- <x-contact-form /> --}}
 </x-app-layout>
