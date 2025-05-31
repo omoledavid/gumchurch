@@ -53,7 +53,7 @@
             <div class="row">
                 {!! $event->content !!}
             </div>
-            @include('sections.home.testimonies')
+            {{-- @include('sections.home.testimonies') --}}
         </div>
     </section>
 </x-app-layout>
