@@ -6,7 +6,7 @@
                 <div class="d-flex flex-column flex-lg-row align-items-lg-center">
                     <div class="thumb-img position-relative mb-3 mb-lg-0">
                         <div class="position-relative" style="aspect-ratio: 53 / 59;">
-                            <img src="{{ asset($event->thumbnail) }}"
+                            <img src="{{ asset('storage/'.$event->thumbnail) }}"
                                  alt="gum"
                                  class="position-absolute top-0 start-0 w-100 h-100 rounded-2"
                                  style="object-fit: cover; object-position: center;">
