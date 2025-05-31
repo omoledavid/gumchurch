@@ -19,6 +19,7 @@ class Sermon extends Model
         'body',
         'thumbnail',
         'pdf_file',
+        
     ];
     protected static function boot()
     {
