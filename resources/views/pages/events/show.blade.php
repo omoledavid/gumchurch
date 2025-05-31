@@ -18,7 +18,7 @@
                     <h1 class="text-center page-title fw-medium">{{$event->title}}</h1>
                 </div>
                 <div class="col-12 d-flex justify-content-center">
-                    <img src="{{asset($event->image)}}" alt="gum">
+                    <img src="{{asset('storage/'.$event->image)}}" alt="gum">
                 </div>
             </div>
         </div>

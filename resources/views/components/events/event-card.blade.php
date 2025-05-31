@@ -3,7 +3,7 @@
     <div class="thumb">
         <a href="{{ route('events.show', $event->slug) }}">
             <div class="event-thumbnail"
-                style="background: #eee url('{{ asset($event->thumbnail) }}') no-repeat center center; background-size: cover;">
+                style="background: #eee url('{{ asset('storage/'.$event->thumbnail) }}') no-repeat center center; background-size: cover;">
             </div>
 
             {{--            <img width="579px" height="370px" class="rounded mt-sm-0 w-100" src="{{asset($event->thumbnail)}}" alt="gum" data-aos="fade-up"> --}}
