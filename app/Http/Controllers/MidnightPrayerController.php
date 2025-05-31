@@ -295,6 +295,12 @@ class MidnightPrayerController extends Controller
         try {
             Log::info('Downloading audio file to: ' . $storagePath);
 
+            // Ensure the directory exists
+            $directory = dirname(Storage::path($storagePath));
+            if (!file_exists($directory)) {
+                mkdir($directory, 0755, true);
+            }
+
             // Add access token to the download URL
             $downloadUrlWithToken = $downloadUrl . '?access_token=' . $token;
 
