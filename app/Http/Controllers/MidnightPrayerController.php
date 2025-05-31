@@ -171,7 +171,7 @@ class MidnightPrayerController extends Controller
                 $dayOfWeek = $recordingDate->dayOfWeek; // 2 for Tuesday, 3 for Wednesday
 
                 // Only process recordings from Tuesday (2) and Wednesday (3)
-                if ($dayOfWeek !== 2 && $dayOfWeek !== 3) {
+                if ($dayOfWeek !== 2 && $dayOfWeek !== 5) {
                     Log::info('Skipping recording from ' . $recordingDate->format('l') . ': ' . $recording['topic']);
                     continue;
                 }
